@@ -1,0 +1,57 @@
+Spring was initially an alternative to EJB and other enterprise specifications (J2EE -> JEE). It was originally
+designed to address the complexity of enterprise application development, but is not limited to server-side
+development. Even smaller projects can benefit from the framework. 
+
+** Simplicity ** Testability ** Loose-Coupling
+
+!!4 Key Strategies!!
+  1) Lightweigt and minially invasive development w/ POJOs
+  2) Loose coupling through DI and interface orientation
+  3) Declarative programming through aspects and common conventions
+  4) Eliminating boilerplate code w/ aspects and templates
+  
+Deeper #1
+  - Some frameworks force you to extend or implement their class and interfaces. This can lead to littering
+  application code with the frameworks API.
+  - Spring may have little indication its being used or only have an annotation in a class.
+  
+Deeper #2
+  - DI promises simplier code, easier to understand, easier to test.
+  - Any non-trivial application requires two or more classes to collaborate to perform some business logic.
+  Traditionally, each object must obtain a reference to the object(s) it collaborates with (its dependencies),
+  but this can lead to highly coupled code that is hard to test.
+  - In addition to XML, beans can be wired in Java configuration code.
+  - In Spring, an "application context" loads bean definitions and wires them together. This can be accomplished
+  in different ways -> When beans are declared in XML, an appropriate application context could be
+  ClassPathXMLApplicationContex. -> For Java based configs, Spring offers AnnotationConfigApplicationContext.
+  These classes are used to refer to objects configured in that file. From the file that defines the applicaiton
+  context, you can operate the program.
+  
+Deeper #3
+  - AOP allows the capture of functionality to be used throughout the application. This is referred to as
+  "cross cutting concerns" -> services that cross multiple components.
+  - In short, Aspects ensure that POJOs can remain Plain.
+  - To declare an Aspect, do so in the Spring config file.
+  
+Deeper #4
+  - Boiler plate code is the so-called ceremony of code that must be written, but is redundant for similar
+  operations across various classes.
+  - There appears to be pre-made templates to slim code down, like the example of Querying databases.
+  
+Containing Your Beans
+  - The container is the core of the Spring Framework.
+  - There is no single Spring container. There are several containers that can broadly be categorized into two
+  types -> 1) Bean Factories 2) Application Contexts (both interface classes in Spring libraries)
+  - We will only be discussing Application Contexts, since Bean Factories are "too low level".
+  
+  ApplicationContext
+    - AnnotationConfigApplicationContext
+    - AnnotationConfigWebApplicationContext
+    - ClassPathXMLApplicationContext
+    - FileSystemXMLApplicationContext
+    - XMLWebApplicationContext
+    
+  ApplicationContext context = new FileSystemXMLApplicationContext("C:/knight.xml");
+  ApplicationContext context = new ClassPathXMLApplicationContext("knight.xml");
+  ApplicationContext context = new AnnotationConfigApplicationContext(
+    com.springinaction.knights.config.KnightConfig.class);
