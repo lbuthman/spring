@@ -21,3 +21,29 @@ Auto-Wire Beans
   pass it to the assigned bean.
   - Autowiring can be accomplished with javax.inject.Inject, @Inject annotation. Not sure what the differences are
   between it and @Autowired.
+  
+Java Configuration Wiring
+  - The @Configuration annotation identifies the class as a configuration class and that it will provide details
+  on the beans that need to be created for the Spring application context.
+  - Instead of using @ComponentScan, we now turn to a method that will reurn the desired type instance for the
+  dependency. Then we can annotate that with @Bean.
+  - Once again, we can specify the id with @Bean(name="idname") notation.
+  - Because this is done with Java, the instance can be created in whatever way is desired via Java code.
+  - To wire an Object with another Bean, again we can use the @Bean annotation. An example is for a constructor to
+  be returned with the required parameter dependency. Spring will intercept this call and ensure the bean method
+  is called rather than invoking the constructor again.
+  
+XML Wiring
+  - For Java Configuration Wiring, we created a class, for XML Wiring we need to create an XML file rooted with
+  a <beans> element. Certain syntax is required which can be found in the book.
+  - To declare a bean, use the <bean> element - <bean class="path"/> and provide an id with id="idname"
+  - Tip: only name a bean if it will specifically used later.
+  - XML beans are created by calling the classes default constructor by default.
+  - There is no type checking or compile-time verification since classes are named with Strings.
+  - In addition to the class attribute in the bean element, we can also use <constructor-arg> and c-namespace. The
+  <constructor-arg ref=""> allows the specification of a non-default constructor with required parameters. The 
+  ref uses the id of the bean declared in the elsewhere. To use the c-namespace, a schema needs to be declared in
+  the <beans> element. From there, a normal <bean> is used with c:(prefix)abc(constructor arg name)-ref="idbean"
+  -> c:cd-ref="compactDisc"/>. Alternatively, the parameter can be refered to by position instead of name, 
+  -> c:_0-ref="compactDisc"/>. The underscore is required since XML doesn't allow numeric prefixes. If there is only
+  one parameter, the underscore will suffice
