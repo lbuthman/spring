@@ -1,1 +1,23 @@
+In Spring, objects aren't responsible for finding or creating the other objects they need to do their jobs. The
+container gives them the references they need to collaborate with each other. Wiring -> DI
 
+Auto-Wire Beans
+  - Attacked from two angles - Component Scanning and Autowiring
+  - The @Component annotation in a class tells Spring to create a bean for the class. But this type of Component
+  Scanning is not turned on by default; code must be written to explicitly set this configuration. This is done in
+  a separate class with the @ComponentScan and @Configuration annotations used. This can also be accomplished in
+  XML <context: component-scan>
+  - The package(s) used can be set but will default to the current package if not specified.
+  - The Test exmaple in the book used a pre-configured JUnit context reference, @RunWith, @ContextConfiguration,
+  @Autowired, and @Test annotations.
+  - All beans in a Spring application context are given an ID, this can be default or specified @Component("yourid")
+  - Specify the scanned package with @ComponentScan("pkgname"). This allows code to live in separate packages
+  like it should. A bit more explicitly, @ComponentScan(basePackages="pkgname", ...) can be used and can refer to
+  multiple packages. This configuration uses a string and is therefore not type same if a package name is refactored.
+  Another way is to specify classes, @ComponentScan(basePackageClasses={ClassName.class, ...})
+  - Autowiring lets Spring automatically satisfy the beans dependencies; this is accomplished with the @Autowired
+  annotation.
+  - In a class, a constructor is annotated with @Autowired which lets Spring know that it should instantiate and 
+  pass it to the assigned bean.
+  - Autowiring can be accomplished with javax.inject.Inject, @Inject annotation. Not sure what the differences are
+  between it and @Autowired.
