@@ -47,3 +47,27 @@ XML Wiring
   -> c:cd-ref="compactDisc"/>. Alternatively, the parameter can be refered to by position instead of name, 
   -> c:_0-ref="compactDisc"/>. The underscore is required since XML doesn't allow numeric prefixes. If there is only
   one parameter, the underscore will suffice
+  - XML wiring can be done with literal values to construct more general objects, using constructor-arg value="value"
+  syntax inside a <bean class="class"> element. The implementation is very similar for c-namespace.
+  - A <null/> can be passed to a constructor if needed.
+  - For a Collection parameter, list items can be specified with <list><value> tags. In addition, a list of object
+  references can be passed with <list><ref bean="">. <set> is a valid tag for sets. There is no way to implment
+  this with a c-namespace.
+  - The author generally favors Constructor Injection for hard dependencies and Property Injection for optional ones.
+  - For property injection, we can use <bean><property name="" ref="">. An alternative is the p-namespace, which
+  requires a schema declaration like the c-namespace. The syntax is p:(propertyname)-ref="idbean" ->
+  p:compactDisk-ref="compactDisc"/>
+  - Property values can be set with literal values like constructors, <property name="propname" value="value"> and
+  lists/sets similarly as well.
+  - The util-namespace can be used to simplify beans. First specify the schema in <beans>, then use the <util> tag.
+  One example is <util:list><value>
+  
+Mixed Configuration Wiring
+  - For autowiring, it doesn't matter where the bean to be wired comes from.
+  - To bring beans together from a Java Configuration file, use @Import(ClassConfig.class) and import the class
+  path for Import. If the configuration is specified in XML, use @ImportResource("classpath.xml") with the
+  imported ImportResource class path.
+  - To bring in beans from XML, use the <import> tag. This only works with other XML resources though. To import a
+  Java Configuration in XML, use <bean class="">.
+  - The author usually creates a "root configuration" that wires together JavaConfig and XML files on a higher 
+  level and typically will use it to turn on Component Scanning.
