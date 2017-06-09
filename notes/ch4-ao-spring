@@ -30,3 +30,22 @@ in XML Configuration
 - Spring only supports method joinpoints, in contrast to other frameworks that support field and constructor joinpoints
 as well
 
+- In Spring, pointcuts are defined with AspectJ's pointcut expression language.
+
+- The following are the supported operations (note: only execution actually performas matches, all the other contrain the
+pointcuts' reach): args(), @args(), execution(), this(), target(), @target(), within(), @within(), @annotation.
+
+- In addition to those designators, the bean() designator can be used to identify beans by ID in a pointcut expression.
+
+- The chapter shows a cool example of creating a Performance class that has a perform method. The Aspect is created in an
+Audience class and is used to execute methods on either side, before/after/around the perform method(). I didn't take too
+many notes since I will learn the syntax by doing it.
+
+- Using an "introduction", aspects can attach new methods to Spring beans. Spring aspects are proxies that implement the
+same interface as the beans they wrap. In addition to implementing those interfaces, the proxy can be exposed to new
+interfaces. When a method on the introduced interface is called, the proxy delegates the call to some other object that
+provides the implementation of the new interface, providing a bean whose implementation is split acorss multiple classes.
+
+- Another secion rehashes the above functionality with XML.
+
+- The last section addresses limitations of AOP and introduces more power with AspectJ.
