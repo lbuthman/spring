@@ -1,5 +1,4 @@
-High Level Goal
-  - Build a web application with Spring.
+Build a web application with Spring
 
 Sources
   1) Spring in Action, 4th Edition
