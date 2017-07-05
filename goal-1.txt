@@ -1,1 +1,21 @@
+High Level Goal
+  - Build a web application with Spring.
 
+Sources
+  1) Spring in Action, 4th Edition
+    -- chapter 5 and 6
+
+Outstanding questions
+  - Is the order of development presented in the book the order that makes the most sense to me?
+
+What It Takes to Achieve
+
+1.1 - Setting up Spring MVC
+
+1.2 - Write a controller
+
+1.3 - Accepting request input
+
+1.4 - Process form
+
+1.5 - Render view in Thymeleaf
