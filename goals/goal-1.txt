@@ -8,6 +8,12 @@ Sources
 Outstanding questions
   - Is the order of development presented in the book the order that makes the most sense to me?
 
+What It Takes to Achieve - pt2
+
+<steps>from article point by point>
+<after>5.2 -> IntelliJ needs you to configure the Application Context, just click on it and then ok,
+this can be done manually as well, but following the prompt is easy</after>
+
 What It Takes to Achieve - pt1
 
 1.1 - Setting up Spring MVC
@@ -27,9 +33,4 @@ know what I'm doing.</refresh>
 1.4 - Process form
 1.5 - Render view in Thymeleaf
 
-What It Takes to Achieve - pt2
-
-<steps>from article point by point>
-<after>5.2 -> IntelliJ needs you to configure the Application Context, just click on it and then ok,
-this can be done manually as well, but following the prompt is easy</after>
 
