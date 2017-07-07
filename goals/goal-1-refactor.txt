@@ -1,0 +1,12 @@
+Refactor -> remove XML configurations
+
+Build a web application with Spring
+
+Sources
+  1) Spring in Action, 4th Edition
+    -- chapter 5 and 6
+  2) https://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/
+
+What It Takes to Achieve - pt1
+
+-
