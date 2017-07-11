@@ -1,0 +1,61 @@
+1. after creating maven webapp archetype, customize pom
+    -- add properties with plugin.version tag and version number, convenience com.learningcode.config
+    -- add dependencies (specifically:
+        - spring-core
+        - jcl-over-slf4j
+        - logback-classic
+        - spring-webmvc
+        - jstl
+        - javax.servlet-api
+    -- add build configuration
+        - maven-compiler-plugin
+        - maven-war-plugin
+        - tomcat7-maven-plugin
+
+2. configure project directory structure
+    -- create com.learningcode.config and com.learningcode.controller packages
+    -- move resources under webapp
+    -- add css folder to resources
+    -- add view folder under WEB-INF
+
+3. create AppInitializer class to replace dispatcher-servlet.xml
+    -- import ServletContext, ServletException, ServletRegistration from javax.servlet
+    -- import WebApplicationInitializer from spring web
+    -- import AnnotationConfigWebApplicationContext from spring web.context.support
+    -- import DispatcherServlet from spring web.servlet
+
+    -- class implements WebApplicationInitializer
+    -- implement public void onStartup(ServletContext container) throws ServletException
+    -- create new AnnotationConfigWebApplicationContext as ctx
+    -- ctx.register(WebConfig.class)
+    -- ctx.setServletContext(container)
+
+    -- ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx))
+    -- servlet.setLoadOnStartup(1)
+    -- servlet.addMapping("/")
+
+4. create WebConfig class to replace web.xml
+    -- import Bean, Configuration, ComponentScan from spring context.annotation
+    -- import ViewResolver from spring web.servlet
+    -- import DefaultServletHandlerConfigurer, EnableWebMvc, WebMvcConfigurerAdapter from
+    spring servlet.config.annotation
+    -- import InternalResourceViewResolver from spring web.servlet.view
+
+    -- add @Configuration, @EnableWebMvc annotation
+    -- add @ComponentScan(basePackages = "base package duh")
+    -- extend WebMvcConfigurerAdapter
+
+    -- create public ViewResolver viewResolver() with @Bean annotation
+    -- instantiate InternalResourceViewResolver as viewResolver
+    -- viewResolver.setPrefix("WEB-INF/views/")
+    -- viewResolver.setSuffix(".jsp")
+    -- return viewResolver
+
+    -- @Override public void configureDefaultServletHandler(DefaultServletConfigurer configurer)
+    -- configurer.enable()
+
+5. create BaseController class for com.learningcode.controller
+    -- (steps)
+
+6. create index.jsp for view
+    -- (steps)
