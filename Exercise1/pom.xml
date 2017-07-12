@@ -10,10 +10,14 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <spring.version>4.3.9.RELEASE</spring.version>
+        <spring.version>4.1.1.RELEASE</spring.version>
         <jstl.version>1.2</jstl.version>
         <servlet.version>3.0.1</servlet.version>
         <junit.version>4.12</junit.version>
+        <mockito.version>2.7.22</mockito.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <commons.version>2.6</commons.version>
+        <jdbc.version>4.3.9.RELEASE</jdbc.version>
     </properties>
 
     <dependencies>
@@ -25,6 +29,24 @@
           <version>${junit.version}</version>
           <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
 
         <!-- Spring Core -->
         <dependency>
@@ -67,9 +89,15 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <version>${commons.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${jdbc.version}</version>
+        </dependency>
 
     </dependencies>
 
