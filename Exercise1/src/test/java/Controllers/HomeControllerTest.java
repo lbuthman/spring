@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 
 import org.springframework.test.web.servlet.MockMvc;
 import org.junit.Test;
-import spittr.controller.HomeController;
+import spittr.web.HomeController;
 
 /**
  * Listing 5.5 HomeControllerTest: tests HomeController
