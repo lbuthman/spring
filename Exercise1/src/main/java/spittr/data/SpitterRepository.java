@@ -1,7 +1,13 @@
 package spittr.data;
 
+import spittr.Spitter;
+
 /**
- * Created by lbuthman on 7/13/17.
+ * basic interface for database implementation
  */
-public class SpitterRepository {
+public interface SpitterRepository {
+
+    Spitter save(Spitter spitter);
+
+    Spitter findByUsername(String username);
 }
