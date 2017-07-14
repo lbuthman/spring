@@ -18,8 +18,23 @@ import spittr.data.SpitterRepository;
 @Controller
 @RequestMapping("/spitter")
 public class SpitterController {
-    @RequestMapping(value = "/register", method = GET)
+
+    private SpitterRepository spitterRepository;
+
+    @Autowired
+    public SpitterController(SpitterRepository spitterRepository) {
+        this.spitterRepository = spitterRepository;
+    }
+
+    @RequestMapping(value="/register", method=GET)
     public String showRegistrationForm() {
         return "registerForm";
+    }
+
+    @RequestMapping(value="/register", method=POST)
+    public String processRegistration(Spitter spitter) {
+        spitterRepository.save(spitter);
+
+        return "redirect:/spitter/" + spitter.getUsername();
     }
 }
