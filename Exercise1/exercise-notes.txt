@@ -23,11 +23,8 @@ click and Mark Directory As Test Sources Root.
 When creating the interface in this section, you must add @Component for later
 Autowiring purposes, otherwise the bean will not be discovered.
 
-5. In Listing 5.8, the EqualsBuilder and HashCodeBuilder will work after removing the
-String arguments "id" and "time". Not sure the history on these methods, maybe their
-public contract changed after the book was published. In addition, the constructors
-are wrong. The first needs null added as the first parameter to this. The second needs
-int id field which is then passed to this.id = id.
+5. The constructors are wrong. The first needs null added as the first parameter to
+this. The second needs int id field which is then passed to this.id = id.
 
 * helpful time * In creating this project, the pom had to continually be updated for
 new dependencies, like mockito-core and spring-jdbc. To successfully import these, I
@@ -47,4 +44,12 @@ twice lol.
 8. In Listing 5.10, the SpittleController needs an import of Model which is not shown
 in the example code: import org.springframework.ui.Model;
 
-9.
+9. When defining the spittles function, the MAX_LONG_AS_STRING trick didn't work
+since the compiler expected a constant. I just used "9223372036854775807".
+
+10. The javax.validation is not compatible with Hibernate 5. The @Email validation
+is mentioned in the source code which is why Hibernate enters the scene now, but either
+way, I think the book will use it eventually anyway. I just removed both dependency;
+I'm sure there are other cool ways to validate input than javax.validation.
+
+11. Skipping Listing 5.19, since validation was skipped previously.
