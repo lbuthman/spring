@@ -46,8 +46,6 @@
             <scope>test</scope>
         </dependency>
 
-
-
         <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -97,6 +95,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${jdbc.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
         </dependency>
 
     </dependencies>
