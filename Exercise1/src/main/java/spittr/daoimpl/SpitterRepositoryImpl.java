@@ -12,7 +12,7 @@ import spittr.Spitter;
 public class SpitterRepositoryImpl implements SpitterRepository {
 
     public Spitter save(Spitter spitter) {
-        return new Spitter();
+        return spitter;
     }
 
     public Spitter findByUsername(String username) {
