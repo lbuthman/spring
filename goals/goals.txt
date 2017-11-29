@@ -1,8 +1,0 @@
-1) Build a web application with IntelliJ Maven Spring archetype
-
-
-<note>The first goal didn't work because I ran into issues building the project without Maven. It
-could be done of course, but managing the dependency was not a battle I wanted to fight.</note>
-x1) Build a web application with Spring
-x2) Build a web application with IntelliJ Spring template
-x3) Build a web application with IntelliJ Maven Spring archetype
