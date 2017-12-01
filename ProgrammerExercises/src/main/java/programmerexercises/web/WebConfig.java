@@ -1,4 +1,4 @@
-package ProgrammerExercises.web;
+package programmerexercises.web;
 
 public class WebConfig {
 }

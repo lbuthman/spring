@@ -1,4 +1,4 @@
-package ProgrammerExercises.config;
+package programmerexercises.config;
 
 public class RootConfig {
 }
