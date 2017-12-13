@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
-    public Optional<Category> getByDescription(String description);
+    public Optional<Category> findByDescription(String description);
 }
