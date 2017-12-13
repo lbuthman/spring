@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
+public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private final CategoryRepository categoryRepository;
     private final RecipeRespository recipeRespository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    public DevBootstrap(CategoryRepository categoryRepository, RecipeRespository recipeRespository, UnitOfMeasureRepository unitOfMeasureRepository) {
+    public RecipeBootstrap(CategoryRepository categoryRepository, RecipeRespository recipeRespository, UnitOfMeasureRepository unitOfMeasureRepository) {
         this.categoryRepository = categoryRepository;
         this.recipeRespository = recipeRespository;
         this.unitOfMeasureRepository = unitOfMeasureRepository;
@@ -28,7 +28,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        recipeRespository.save(getRecipes());
+        recipeRespository.saveAll(getRecipes());
     }
 
     private List<Recipe> getRecipes() {
@@ -125,6 +125,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         chickenTacosRecipe.setSource("Simply Recipes");
         chickenTacosRecipe.setDifficulty(Difficulty.MEDIUM);
         chickenTacosRecipe.getCategories().add(americanCategory);
+        chickenTacosRecipe.getCategories().add(mexicanCategory);
         chickenTacosRecipe.setUrl("http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
         chickenTacosRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n" +
                 "2 Make the marinade and coat the chicken: In a large bowl, stir together the chili powder, oregano, cumin, sugar, salt, garlic and orange zest. Stir in the orange juice and olive oil to make a loose paste. Add the chicken to the bowl and toss to coat all over.\n" +
