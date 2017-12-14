@@ -20,7 +20,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public List<Recipe> getRecipes() {
-        log.debug("Getting recipes from service.");
+        log.debug("Getting Recipes from service.");
         List<Recipe> recipes = new ArrayList<>();
         recipeRespository.findAll().iterator().forEachRemaining(recipes::add);
         return recipes;
