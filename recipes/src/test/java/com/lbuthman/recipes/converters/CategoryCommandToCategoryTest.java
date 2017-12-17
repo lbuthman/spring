@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 public class CategoryCommandToCategoryTest {
 
@@ -16,6 +18,16 @@ public class CategoryCommandToCategoryTest {
     @Before
     public void setUp() throws Exception {
         converter = new CategoryCommandToCategory();
+    }
+
+    @Test
+    public void testNullObject() {
+        assertNull(converter.convert(null));
+    }
+
+    @Test
+    public void testNotNullObject() {
+        assertNotNull(converter.convert(new CategoryCommand()));
     }
 
     @Test
